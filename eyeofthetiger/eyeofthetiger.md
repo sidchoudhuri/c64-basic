@@ -1,6 +1,7 @@
 ```basic
 10 REM eye of the tiger By Bobby Brightling
 20 POKE52,48:POKE56,48:CLR: REM reserve memory.
+25 fn$="tiger.sid":GOSUB1000: REM load sid payload.
 30 POKE56334,0:POKE1,51:    REM swap in char. rom.
 40 FORp=0TO1              : REM copy rom to ram.
 50 POKE88,0:POKE89,48+p:POKE90,0:POKE91,208+p:POKE781,1:POKE782,0:SYS41964
@@ -26,17 +27,7 @@
 250 FORz=0TO31
 260 z0=INT(z/8)AND3:gs$(z+fe)=g$(z0)+v$(z0/2)+CHR$(35+(zAND7)+(z0AND1)*128)
 270 NEXT
-280 REM plot tiger eye data using grayscale.
-290 PRINT CHR$(147);
-300 FOR r=1 TO 24
-310 READ b$
-320 FOR c=1 TO LEN(b$)
-330 PRINT gs$(ASC(MID$(b$,c)));
-340 NEXT
-350 NEXT
-360 PRINT CHR$(5)TAB(12)"eye of the tiger";
-370 GET k$:IF k$="" THEN 370
-380 END
+@@ -40,26 +41,49 @@
 390 REM eye of the tiger.
 400 DATA "77998799964468;=?@>?a@<8899;;:9:99=>=b>;"
 410 DATA "778987:::8767;<=@@<<;=??><9;@??>=<:<<;??"
@@ -62,4 +53,25 @@
 610 DATA "0111379:985322100000012479;?deedc@=:8:77"
 620 DATA "134468<<<?<977764444679=?ddcfec@>9;=<9;;"
 630 DATA "146678=@@abb>>?a?>=<>aceedggdb@@<<987778"
+1000 REM load a psid/rsid file's c64 data at its own load address.
+1010 REM rename the disk file to tiger.sid, or change fn$ on line 25.
+1020 OPEN2,8,2,fn$+",S,R"
+1030 FOR i=1TO14:GET#2,a$:b=ASC(a$+CHR$(0))
+1040 IF i=7 THEN oh=b
+1050 IF i=8 THEN o=oh*256+b
+1060 IF i=9 THEN lh=b
+1070 IF i=10 THEN la=lh*256+b
+1080 IF i=13 THEN ph=b
+1090 IF i=14 THEN pa=ph*256+b
+1100 NEXT
+1110 IF o>14 THEN FOR i=15TOo:GET#2,a$:NEXT
+1120 IF la<>0 THEN ad=la:GOTO1150
+1130 GET#2,a$:lo=ASC(a$+CHR$(0)):GET#2,a$:hi=ASC(a$+CHR$(0))
+1140 ad=lo+256*hi
+1150 be=PEEK(45)+256*PEEK(46):IF ad<be THEN PRINT"sid would overwrite basic at";ad:CLOSE2:STOP
+1160 sa=ad:bc=0
+1170 GET#2,a$:IF ST AND 64 THEN CLOSE2:PRINT"sid loaded";bc;"bytes at";sa:RETURN
+1180 IF ad>=12288ANDad<14336 THEN PRINT"sid conflicts with charset ram";ad:CLOSE2:STOP
+1190 POKEad,ASC(a$+CHR$(0)):ad=ad+1:bc=bc+1:IF ad>65535 THEN PRINT"sid too large":CLOSE2:STOP
+1200 GOTO1170
 ```
