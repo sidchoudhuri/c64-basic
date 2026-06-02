@@ -69,11 +69,12 @@
 670 print:print "----------------------------------------"
 680 return
 ```
-## [hex grid](https://stigc.dk/c64/basic/?s=2jVXbcqM4EH3XV3SoPEBMdhFXG4b8yNQ8YJCBLJYoISbJ329LAow92ap1KsaiT99OX0QDkOwKLy8v0LHPNIZzNbEGBNfHCiZV1f9oKQkDGGXPFdSdfHZpnHnF8ssrSBRA01-hdjPP5_qratzMTz0SBzCVQd7iv3YzlVMtJPOhLdvqykD8ZhIuQ9WSxMbx-goNu_ScafdwrZTsP8FNgbO-7c5CTjCiBsp8CEouOPNIGsBFSOhLCkpAluvDuz2k6LRqAIPp_Xcv5-xTwbt99CTDmCtVQejHfuQH-s_EqB3Tm0NyXHAJ4ugDLtzhTguOIi59wEU7HA02YOgnPtLkRxsw3mXq1owrJj1C6S7U7MF0sjcdLsDoG2C6B0YLMEVg8gDM9sB4q0stBmT2Wo1jz1uUJEvNxbMbe7l-UK-0LZGknrE2znIcGKFYIi0PF3kUWHErGeOEZlYarVJqpedhRtVjsHhYTR-t9IsNg_gg9GTlwSqPF9fy9wTicgH3o-sV-xubqpoH5WEbbwm1jDNZKQaqH5jpoXGovpgkIfKt6hKb3ZW8wbReYu9Ac8VLSsJw1X9FLnoOpo8HIUYSIqmtmOYzJIFls5HVB0y1STNEJvsLNj52Zsf4MkzONgZPgG1fDWAGJHeKKWe8IWGyjp3zJWZpQs3BKXTOqvYKxQubfuFgv5gK1aLR-qouHM8hIXLf83FGA5hdzaBSpsgufc08p-hImJm4uh8UULl7y2x4mAwJj0bE3c57C-6inkZtStT1PPaseXLM0Ck7dNjfgZmxvBV4NIZOG-k2CJ0GLg2sHdouVZ1z8-QkojekFDWbJmw2uDLZsolEyP112STmFSiJ62ldIVF0twlSEiHl_Fzi-Hd-7-U6lXO5JBIHAYkSk1_t8rP3402Hoing-ngHS21MuI3qDj3MvHmCUYjBpDEhvegN0aAqjMnQSyJk1eSkvw7GJIl0L1vj-eKERCedEjUp6STQDhaoWtLrcNiwSRtco2jOrq2YmqCvax8ZkpEZ2_Xste4YbuzbFkGs6vTEwtT1F6WNhbeZNmBNmmk7qHgD9cAqSeLoVvsysa5wex_0i3zpAoN8goNT6LfYgaPA95NjqxnktX181xskjr8J4jIPA5xFJRtwb_eDkeNVgtW6zMjV3bY3MfZbvRAQkDhd2dJirbNQhfMbZ3_Ov8GaloyP_z358SmwZOMKwOvqdl_thjyhf96SK1t6Y9grVv_axpwk681qgSSJrGlMEztusxw_XHMPiX8-64Pz869fjp27JMUokTIr0Euixh_ewfnpHK598-xOCiPUJjw_xNe_nIPdJCTZ6CNJtq0fsB-n-NSLvnC2Q4gaxwVGktOdggFEe3S8PyT69l5VU_qtr3SvkKHCPV2G1__1cUhqmFWz5P8C)
+## [hex grid](https://stigc.dk/c64/basic/?s=2jVbdcqo6FL7PU6wyXkClZxIgoFj6Inv2BUIEWgxMiKft25-VBBHd3TPHTpW4vqyfb_3JKChxhufnZ2jFV5rAsZxEDYM0xxImXVYfRkoiCqPqpIaqVRufJVlwmJ_mBx4c8nH4EMDjaMdCejvQkJKYQt2dofKzIJTmraz9LEyD8GuDJxJzOE-bwvNIQmEqaN7gv3FsKqZqUCKEpmjKs4DhX6Hg1JcN4c7zlxeoxamTwjgM51Kr7gv8FKTomvY4qAlGvIGyEGghBykCklI4DQq6goEeIMvN4d0dUjRa1oDOdeF7kEvxpeHdfXQkwxhKXUIUJmEcUvNnfTSG2c0g2c04jjj2gItWuP2MY4hLH3DxCsfoAoxCHiJtYbwAk1WkfiWkFiogjK1czR5U87XqaAbGPwDTNTCegSkC-QMwWwOTJS_V0COz53IcO9mghM81MGz8JMjNBwsKV0Q8Day28aLGXhCGKTLyaJbH1IkbJYQkLHPSeLk9i9HOB2E7Opu4SndO-i36fvgkbO_kdJZzJ_1sOy2QQeuzEpPQAdb8EksjpFAlInTXC1s-Y19-C0UipFpXBXaGr2SNET0nwZblWhaMRNH1_gvS0EmwJdwPw0gi5LMZpssROHVE1qr8hKmyEUZIYnfCmseibIWcO89bOuAJsOLLHmxv5N5hyoWsScSvPep9DxdlXc3BO5hodRUctDy4wA_eNdBqqM19XR28wEMFHNqCkgjp7-R4QUUYZSWg1DbPPnvJAu_Qkiiz_rWvDFBJ-5Y5NzEogu1uRNJvgzd65_00GlVDVV3GTtRPnu077foOS5zaNsubAY9W0X4h3zlhwsE5gtlD3YWucmk_JYnZDamGSkwT1huchWrERGLMwXkeJvYr0Apn2nWKxPHdMEhJjNTLY4EToA27IDehHIs5kITiIOM2vsqXx-D1zbhiKJDmeAdLnU84kKoWLVxk_QTjMPQ2jAnpRWuIBl2iT5ZeEiOrNibztrUqSWyq2SnPZyMk3puQmA3JBIF6MEHlHF6L_YbFWuMkRXVuciXMOn2-1pMlGZmxKpR4qVqBY_42SBCrW9O0MLXdSRtl0a2tLdiQZssPSllD1YtSkSS-5b7gzhQO8K35Irfz3eKeYOttz1298SeNDWikQRgFWw8JQl4mz2WW5jbRlCTJD7ZPl76H41CqGvzbZrDygCSYpNMFKbqb89a1bkkTAlB3eiXJiM2dmSFs3yT7s_0t1lZispt7dFb3tyGQ7KnjG6cBLq3b1lr1O2d_btd8bhszPNxqNk9Lx-MdbnM6bV7fPG_dafhVPm9Tfl3bThvhsbOPvGBlLuaTh434wBTuaDx4v_757bn-5CmGghw7gRkqFT5gBn_dJ7abE_vb27rJQ_jCN-HZMq7AvbzDl9kJB285RHhjN8MI399dsIB4jU7WB24W_fVqyn60la4v4M-Q9J4uS_7_enkktczqi5L_AQ)
 ```basic
 10 rem *** hex64 based on hexa stack ***
-20 print chr$(147);chr$(14);
-30 dim c(7),n(7),ad(7,6)
+20 print chr$(147);chr$(14);chr$(5);:poke 53281,0:poke 53280,0
+30 dim c(7),n(7),ad(7,6),x$(7)
+35 ms$=""
 40 s=0:g=0:rem s=score, g=game over flag
 50 rem -- define hex matrix (6 neighbors per hex, 0=none)
 60 for i=1 to 7:for j=1 to 6:read ad(i,j):next j:next i
@@ -87,15 +88,16 @@
 140 rem -- color mappings
 150 dim co$(4):co$(1)=chr$(156):rem purple
 160 co$(2)=chr$(30):rem green
-170 co$(3)=chr$(31):rem blue
+170 co$(3)=chr$(150):rem pink
 180 co$(4)=chr$(158):rem yellow
-190 co$(0)=chr$(146):rem rvs off (white/default)
+190 co$(0)=chr$(5):rem white (color reset)
 200 rem -- generate tile for player
 210 tc=int(rnd(1)*4)+1:tn=1
 220 rem --- main game loop
 230 gosub 500:rem draw screen
 240 if g=1 then print "game over! final score:";s:end
 250 print "your tile: ";co$(tc);tn;co$(0);" (color code:";tc;")"
+255 h=0
 260 input "place at hex (1-7)";h
 270 if h<1 or h>7 then 230
 280 if n(h)>0 then print "space occupied!":for t=1 to 1000:next:goto 230
@@ -113,15 +115,16 @@
 400 next i
 410 if m=1 then goto 320:rem re-check neighbors if things shifted
 420 rem -- check for score and clear
-430 if n(h)>=5 then s=s+n(h):print "clear! +";n(h);" points":n(h)=0:c(h)=0:for t=1 to 1000:next
+430 if n(h)>=5 then s=s+n(h):ms$="clear! +"+mid$(str$(n(h)),2)+" points":n(h)=0:c(h)=0
 440 rem -- check for full board (game over check)
 450 fu=1:for i=1 to 7:if n(i)=0 then fu=0
 460 next i:if fu=1 then g=1
 470 rem -- generate next tile
-480 tc=int(rnd(1)*4)+1:tn=1
+480 if g=0 then tc=int(rnd(1)*4)+1:tn=1
 490 goto 220
 500 rem -- draw screen
 510 print chr$(147);:print "--- hex64 --- score:";s
+515 if ms$<>"" then print ms$:ms$=""
 520 print:print
 530 rem format screen
 540 for i=1 to 7:if n(i)=0 then x$(i)="[.]":goto 560
