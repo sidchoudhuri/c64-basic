@@ -32,21 +32,21 @@
 280 if n(h)>0 then print "space occupied!":for t=1 to 1000:next:goto 230
 290 rem -- place tile
 300 c(h)=tc:n(h)=tn:sw=0
-310 rem -- processing merges
+310 rem -- process merges
 320 m=0:rem merge tracker flag
 330 for i=1 to 6
 340 nb=ad(h,i):if nb=0 then 400
 350 if c(nb)<>c(h) or n(nb)=0 then 400
-360 rem match found! pool tiles into the target hex
+360 rem matched - move tiles to the target hex
 370 n(h)=n(h)+n(nb)
 380 c(nb)=0:n(nb)=0
-390 m=1:rem flag that a merge happened
+390 m=1:rem flag that a merge
 400 next i
-410 if m=1 then goto 320:rem re-check neighbors if things shifted
+410 if m=1 then goto 320:rem re-check neighbors
 420 rem -- check for score and clear
 430 if n(h)>=10 then s=s+n(h):ms$="clear! +"+mid$(str$(n(h)),2)+" points":n(h)=0:c(h)=0
 435 if s>=nt then lv=lv+1:nt=nt*2:ms$=ms$+"  ** level "+mid$(str$(lv),2)+" **"
-440 rem -- check for full board (game over check)
+440 rem -- check for full board - game over
 450 fu=1:for i=1 to 7:if n(i)=0 then fu=0
 460 next i:if fu=1 then g=1
 470 rem -- generate next tile
