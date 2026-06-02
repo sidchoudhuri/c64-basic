@@ -74,8 +74,8 @@
 10 rem *** hex64 based on hexa stack ***
 20 print chr$(147);chr$(14);chr$(5);:poke 53281,0:poke 53280,0
 30 dim c(7),n(7),ad(7,6),x$(7)
-35 ms$=""
-40 s=0:g=0:rem s=score, g=game over flag
+35 ms$="":sw=1
+40 s=0:g=0:lv=1:nt=50:rem s=score, g=game over, lv=level, nt=next level threshold
 50 rem -- define hex matrix (6 neighbors per hex, 0=none)
 60 for i=1 to 7:for j=1 to 6:read ad(i,j):next j:next i
 70 data 2,4,3,0,0,0:rem hex 1 neighbors
@@ -92,7 +92,7 @@
 180 co$(4)=chr$(158):rem yellow
 190 co$(0)=chr$(5):rem white (color reset)
 200 rem -- generate tile for player
-210 tc=int(rnd(1)*4)+1:tn=1
+210 tc=int(rnd(1)*4)+1:tn=int(rnd(1)*3)+1
 220 rem --- main game loop
 230 gosub 500:rem draw screen
 240 if g=1 then print "game over! final score:";s:end
@@ -102,7 +102,7 @@
 270 if h<1 or h>7 then 230
 280 if n(h)>0 then print "space occupied!":for t=1 to 1000:next:goto 230
 290 rem -- place tile
-300 c(h)=tc:n(h)=tn
+300 c(h)=tc:n(h)=tn:sw=0
 310 rem -- processing merges
 320 m=0:rem merge tracker flag
 330 for i=1 to 6
@@ -115,19 +115,21 @@
 400 next i
 410 if m=1 then goto 320:rem re-check neighbors if things shifted
 420 rem -- check for score and clear
-430 if n(h)>=5 then s=s+n(h):ms$="clear! +"+mid$(str$(n(h)),2)+" points":n(h)=0:c(h)=0
+430 if n(h)>=10 then s=s+n(h):ms$="clear! +"+mid$(str$(n(h)),2)+" points":n(h)=0:c(h)=0
+435 if s>=nt then lv=lv+1:nt=nt*2:ms$=ms$+"  ** level "+mid$(str$(lv),2)+" **"
 440 rem -- check for full board (game over check)
 450 fu=1:for i=1 to 7:if n(i)=0 then fu=0
 460 next i:if fu=1 then g=1
 470 rem -- generate next tile
-480 if g=0 then tc=int(rnd(1)*4)+1:tn=1
+480 if g=0 then tc=int(rnd(1)*4)+1:tn=int(rnd(1)*3)+1
 490 goto 220
 500 rem -- draw screen
-510 print chr$(147);:print "--- hex64 --- score:";s
+510 print chr$(147);:print "hex64  score:";s;"  lvl:";lv;"  goal:";nt
 515 if ms$<>"" then print ms$:ms$=""
 520 print:print
 530 rem format screen
-540 for i=1 to 7:if n(i)=0 then x$(i)="[.]":goto 560
+540 for i=1 to 7:if n(i)=0 and sw=0 then x$(i)="[.]":goto 560
+541 if n(i)=0 then x$(i)="["+mid$(str$(i),2)+"]":goto 560
 550 x$(i)=co$(c(i))+"["+mid$(str$(n(i)),2)+"]"+co$(0)
 560 next i
 570 print "       ";x$(1);"    ";x$(2)
@@ -136,5 +138,4 @@
 600 print
 610 print "       ";x$(6);"    ";x$(7)
 620 print:print "----------------------------------------"
-630 return
-```
+630 return```
