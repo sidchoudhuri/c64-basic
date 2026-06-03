@@ -1,6 +1,6 @@
 10 rem *** hex64 v2 - expanding boards ***
 20 print chr$(147);chr$(14);chr$(5);:poke 53281,0:poke 53280,0
-30 dim c(19),n(19),ad(19,6),x$(19),ho(19)
+30 dim c(19),n(19),ad(19,6),x$(19),ho(19),mp(19),rm(19)
 35 ms$=""
 40 s=0:g=0:lv=1:nt=50
 50 for i=1 to 19:for j=1 to 6:read ad(i,j):next j:next i
@@ -32,20 +32,20 @@
 310 gosub 600
 320 if g=1 then print "game over! score:";s:end
 330 h=0:input "hex";h
-340 if h<1 or h>19 then 310
-350 if ho(h)=1 then print "hole!":for t=1 to 500:next t:goto 310
-360 if n(h)>0 then print "taken!":for t=1 to 500:next t:goto 310
-370 c(h)=tc:n(h)=tn:sw=0
+340 if h<1 or h>sl then 310
+350 ih=mp(h)
+360 if n(ih)>0 then print "taken!":for t=1 to 500:next t:goto 310
+370 c(ih)=tc:n(ih)=tn
 380 rem merges
 390 m=0
-400 for i=1 to 6:nb=ad(h,i)
+400 for i=1 to 6:nb=ad(ih,i)
 410 if nb=0 then 440
-420 if ho(nb)=1 or c(nb)<>c(h) or n(nb)=0 then 440
-430 n(h)=n(h)+n(nb):c(nb)=0:n(nb)=0:m=1
+420 if ho(nb)=1 or c(nb)<>c(ih) or n(nb)=0 then 440
+430 n(ih)=n(ih)+n(nb):c(nb)=0:n(nb)=0:m=1
 440 next i
 450 if m=1 then 390
 460 rem score
-470 if n(h)>=10 then s=s+n(h):ms$="clear! +"+mid$(str$(n(h)),2)+" pts":n(h)=0:c(h)=0
+470 if n(ih)>=10 then s=s+n(ih):ms$="clear! +"+mid$(str$(n(ih)),2)+" pts":n(ih)=0:c(ih)=0
 480 rem level up
 490 if s>=nt then lv=lv+1:nt=nt*2:ms$=ms$+" ** lvl "+mid$(str$(lv),2)+" **":gosub 820
 500 rem full board check
@@ -53,44 +53,47 @@
 520 next i:if fu=1 then g=1
 530 tc=tk:tn=tm:tk=int(rnd(1)*4)+1:tm=int(rnd(1)*3)+1
 540 goto 310
-550 rem *** draw screen ***
-600 print chr$(147);
-610 print "hex64 score:";s;" lvl:";lv;" goal:";nt
-620 if ms$<>"" then print ms$:ms$=""
-625 print
-630 for i=1 to 19
-640 if ho(i)=1 then x$(i)="    ":goto 700
-650 if n(i)<>0 then 680
-660 si$=mid$(str$(i),2):if len(si$)=1 then si$=" "+si$
-665 if sw=0 then x$(i)="[..]":goto 700
-670 x$(i)="["+si$+"]":goto 700
-680 sv$=mid$(str$(n(i)),2):if len(sv$)=1 then sv$=" "+sv$
-690 x$(i)=co$(c(i))+"["+sv$+"]"+co$(0)
-700 next i
-710 print "     ";x$(1);" ";x$(2);" ";x$(3)
-720 print
-730 print "   ";x$(4);" ";x$(5);" ";x$(6);" ";x$(7)
-740 print
-750 print " ";x$(8);" ";x$(9);" ";x$(10);" ";x$(11);" ";x$(12)
-760 print
-770 print "   ";x$(13);" ";x$(14);" ";x$(15);" ";x$(16)
-780 print
-790 print "     ";x$(17);" ";x$(18);" ";x$(19)
-795 print
-800 print "---------------------------------------"
-810 print "tile:";co$(tc);"[";mid$(str$(tn),2);"]";co$(0);" next:";co$(tk);"[";mid$(str$(tm),2);"]";co$(0)
-815 return
+600 rem *** draw screen ***
+610 print chr$(147);
+620 print "hex64 score:";s;" lvl:";lv;" goal:";nt
+630 if ms$<>"" then print ms$:ms$=""
+635 print
+640 for i=1 to 19
+650 if ho(i)=1 then x$(i)="    ":goto 710
+660 if n(i)<>0 then 690
+670 si$=mid$(str$(rm(i)),2):if len(si$)=1 then si$=" "+si$
+680 x$(i)="["+si$+"]":goto 710
+690 sv$=mid$(str$(n(i)),2):if len(sv$)=1 then sv$=" "+sv$
+700 x$(i)=co$(c(i))+"["+sv$+"]"+co$(0)
+710 next i
+720 print "     ";x$(1);" ";x$(2);" ";x$(3)
+730 print
+740 print "   ";x$(4);" ";x$(5);" ";x$(6);" ";x$(7)
+750 print
+760 print " ";x$(8);" ";x$(9);" ";x$(10);" ";x$(11);" ";x$(12)
+770 print
+780 print "   ";x$(13);" ";x$(14);" ";x$(15);" ";x$(16)
+790 print
+800 print "     ";x$(17);" ";x$(18);" ";x$(19)
+805 print
+810 print "---------------------------------------"
+815 print "tile:";co$(tc);"[";mid$(str$(tn),2);"]";co$(0);" next:";co$(tk);"[";mid$(str$(tm),2);"]";co$(0)
+816 return
 820 rem *** load level shape ***
-830 for i=1 to 19:ho(i)=1:n(i)=0:c(i)=0:next i:sw=1
+830 for i=1 to 19:ho(i)=1:n(i)=0:c(i)=0:next i
 840 lp=(lv-1)-int((lv-1)/5)*5+1
-850 if lp=1 then ms$=ms$+"[flower]":goto 900
-860 if lp=2 then ms$=ms$+"[ring]":goto 910
-870 if lp=3 then ms$=ms$+"[arch]":goto 920
-880 if lp=4 then ms$=ms$+"[wings]":goto 930
-890 ms$=ms$+"[full]":goto 940
-900 ho(5)=0:ho(6)=0:ho(9)=0:ho(10)=0:ho(11)=0:ho(14)=0:ho(15)=0:return
-910 ho(1)=0:ho(2)=0:ho(3)=0:ho(4)=0:ho(7)=0:ho(8)=0
-911 ho(12)=0:ho(13)=0:ho(16)=0:ho(17)=0:ho(18)=0:ho(19)=0:return
-920 for i=1 to 19:ho(i)=0:next i:ho(1)=1:ho(3)=1:ho(17)=1:ho(19)=1:return
-930 for i=1 to 19:ho(i)=0:next i:ho(2)=1:ho(10)=1:ho(18)=1:return
-940 for i=1 to 19:ho(i)=0:next i:return
+850 if lp=1 then ms$=ms$+"[flower]":goto 910
+860 if lp=2 then ms$=ms$+"[ring]":goto 920
+870 if lp=3 then ms$=ms$+"[arch]":goto 930
+880 if lp=4 then ms$=ms$+"[wings]":goto 940
+890 ms$=ms$+"[full]":goto 950
+910 ho(5)=0:ho(6)=0:ho(9)=0:ho(10)=0:ho(11)=0:ho(14)=0:ho(15)=0:goto 960
+920 ho(1)=0:ho(2)=0:ho(3)=0:ho(4)=0:ho(7)=0:ho(8)=0
+921 ho(12)=0:ho(13)=0:ho(16)=0:ho(17)=0:ho(18)=0:ho(19)=0:goto 960
+930 for i=1 to 19:ho(i)=0:next i:ho(1)=1:ho(3)=1:ho(17)=1:ho(19)=1:goto 960
+940 for i=1 to 19:ho(i)=0:next i:ho(2)=1:ho(10)=1:ho(18)=1:goto 960
+950 for i=1 to 19:ho(i)=0:next i
+960 rem build label map
+970 sl=0:for i=1 to 19:if ho(i)=1 then 990
+980 sl=sl+1:mp(sl)=i:rm(i)=sl
+990 next i:return
