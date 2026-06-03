@@ -82,7 +82,7 @@
 815 return
 820 rem *** load level shape ***
 830 for i=1 to 19:ho(i)=1:n(i)=0:c(i)=0:next i:sw=1
-840 lp=((lv-1) mod 5)+1
+840 lp=(lv-1)-int((lv-1)/5)*5+1
 850 if lp=1 then ms$=ms$+"[flower]":goto 900
 860 if lp=2 then ms$=ms$+"[ring]":goto 910
 870 if lp=3 then ms$=ms$+"[arch]":goto 920
