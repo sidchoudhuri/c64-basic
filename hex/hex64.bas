@@ -1,6 +1,6 @@
 10 rem *** hex64 v2 - more boards! ***
 20 print chr$(147);chr$(14);chr$(5);:poke 53281,0:poke 53280,0
-30 dim c(19),n(19),ad(19,6),x$(19),ho(19),mp(19),rm(19),stc(5),stn(5),cl(5)
+30 dim c(19),n(19),ad(19,6),x$(19),ho(19),mp(19),rm(19),zc(5),zn(5),cl(5)
 35 ms$=""
 40 s=0:g=0:lv=1:nt=50
 50 for i=1 to 19:for j=1 to 6:read ad(i,j):next j:next i
@@ -34,7 +34,7 @@
 340 if h<1 or h>sl then 310
 350 ih=mp(h)
 360 if n(ih)>0 then print "taken!":for t=1 to 500:next t:goto 310
-370 c(ih)=stc(sp):n(ih)=stn(sp)
+370 c(ih)=zc(sp):n(ih)=zn(sp)
 380 rem *** merge ***
 390 m=0
 400 for i=1 to 6:nb=ad(ih,i)
@@ -76,8 +76,8 @@
 800 print "     ";x$(17);" ";x$(18);" ";x$(19)
 805 print
 810 print "---------------------------------------"
-815 print "tile:";co$(stc(sp));"[";mid$(str$(stn(sp)),2);"]";co$(0);
-816 if sp<5 then print " next:";:for si=sp+1 to 5:print co$(stc(si));"[";mid$(str$(stn(si)),2);"]";co$(0);:next si
+815 print "tile:";co$(zc(sp));"[";mid$(str$(zn(sp)),2);"]";co$(0);
+816 if sp<5 then print " next:";:for si=sp+1 to 5:print co$(zc(si));"[";mid$(str$(zn(si)),2);"]";co$(0);:next si
 817 print
 818 return
 820 rem *** load levels ***
@@ -113,16 +113,16 @@
 1120 next k
 1130 if lp<=2 then gosub 1200:return
 1140 for i=1 to 5
-1150 stc(i)=cl(int(rnd(1)*nc)+1)
-1160 stn(i)=int(rnd(1)*3)+1
+1150 zc(i)=cl(int(rnd(1)*nc)+1)
+1160 zn(i)=int(rnd(1)*3)+1
 1170 next i
 1180 return
 1200 rem *** grouped stack gen (lp 1-2) ***
 1210 if nc=1 then k1=5:goto 1230
 1220 k1=int(rnd(1)*4)+1
 1230 for i=1 to 5
-1240 if i<=k1 then stc(i)=cl(1):goto 1260
-1250 stc(i)=cl(2)
-1260 stn(i)=int(rnd(1)*3)+1
+1240 if i<=k1 then zc(i)=cl(1):goto 1260
+1250 zc(i)=cl(2)
+1260 zn(i)=int(rnd(1)*3)+1
 1270 next i
 1280 return
