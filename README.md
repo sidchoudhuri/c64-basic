@@ -5,6 +5,7 @@
 - [One Liners](/oneliners/readme.md)
 - [BASIC encoding](https://www.retrointernals.org/basic/basic.html)
 - [useful pokes](useful_pokes.md)
+- [cross-compiler macro sets used for PETSCII control codes](macros.md)
 - Color
   - [@ Big Code](https://bigcode.wordpress.com/2016/10/30/commodore-64-color-codes/) 
 - PETSCII
