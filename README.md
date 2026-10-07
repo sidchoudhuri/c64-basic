@@ -9,6 +9,7 @@
 - Color
   - [@ Big Code](https://bigcode.wordpress.com/2016/10/30/commodore-64-color-codes/) 
 - PETSCII
+  - [Character Editor](https://petscii.krissz.hu/)  
   - [@ STA](https://sta.c64.org/cbm64pet.html)
   - [@ c64 wiki](https://www.c64-wiki.com/wiki/PETSCII_Codes_in_Listings)
   - [@ pagetable](https://www.pagetable.com/c64ref/charset/)
