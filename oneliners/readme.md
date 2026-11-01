@@ -1,3 +1,15 @@
+# [1 line light cycle](https://stigc.dk/c64/basic/?s=2M0jzL7A1SjUuyQcSVumu2VaJtona2Yl-xlYF_gU6Ba4aBZrahkYWVgW2BdpAnpGhobl2oqaupYFVmn-JrUFJvrGBVZ4rCCkZVlTnF-Wl11YBAA)
+```basic
+0fOp=2e3to2e3:gEk:a=a+kaN3:pOp,pE(p)+128:p=p+pE(2117+a)-90:fOt=0to30:nE:nE:"1x{orng}z
+```
+- 1 to turn left and 3 to turn right. Any other key ends the game.
+- The game ends if you hit your own light cycle trail.
+### How It Works
+- The game draws to the screen and checks each cell before moving and reversing the color by adding 128 to it. These are effectively "solid blocks". Colliding makes the character value go past 255, which is an illegal value, so it ends the game.
+- The four directions are stored as characters at the end of the line. The game reads their values from memory minus an offset resulting in screen steps for up, left, down, and right.
+- Keys 1 and 3 change the direction one quarter-turn left or right achieved by adding the key press to the direction, keeping only the lowest 2 bits.
+---
+
 # [oneliner64.com](oneliner64.com)
 ## [A complete arcade action game for the C64 in one single line of code...](https://stigc.dk/c64/basic/?s=2M7QvcSzy0zDQ1DK21FTSUrJKd822KrAt0NbItjXU1AWSlppWBf6GRhYm2gU6RkZW-XkFNiZGBol-GgWuGobGRkBhTVsTI01to3R_HUMA) by Joep Geevers
 use 1 and 9 to move your ship left and right
