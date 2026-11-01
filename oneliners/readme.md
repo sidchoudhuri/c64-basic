@@ -3,7 +3,7 @@
 0fOp=2e3to2e3:gEk:a=a+kaN3:pOp,pE(p)+128:p=p+pE(2117+a)-90:fOt=0to30:nE:nE:"1x{orng}z
 ```
 - 1 to turn left and 3 to turn right. Any other key ends the game.
-- The game ends if you hit your own light cycle trail.
+- The game ends if you hit your own light cycle trail or the top or bottom of the screen.
 ### How It Works
 - The game draws to the screen and checks each cell before moving and reversing the color by adding 128 to it. These are effectively "solid blocks". Colliding makes the character value go past 255, which is an illegal value, so it ends the game.
 - The four directions are stored as characters at the end of the line. The game reads their values from memory minus an offset resulting in screen steps for up, left, down, and right.
