@@ -2,7 +2,6 @@
 - [SID Winder .sid Compressor](https://sidwinder.netlify.app/)
 # C64-BASIC
 #### Learning C64 BASIC
-- [One Liners](/oneliners/readme.md)
 - [BASIC encoding](https://www.retrointernals.org/basic/basic.html)
 - [useful pokes](useful_pokes.md)
 - [cross-compiler macro sets used for PETSCII control codes](macros.md)
@@ -14,6 +13,7 @@
   - [@ c64 wiki](https://www.c64-wiki.com/wiki/PETSCII_Codes_in_Listings)
   - [@ pagetable](https://www.pagetable.com/c64ref/charset/)
 #### My Code
+- [One Liners](/oneliners/readme.md)
 - [10 line fishing!](/fishing)
 - [10 Line 10 Print Invader - 2026 10 liner compo](/10%20liner%202026/readme.md)
 - [PETSCII Pit - A C64 BASIC roguelike](https://github.com/sidchoudhuri/petscii-pit)
